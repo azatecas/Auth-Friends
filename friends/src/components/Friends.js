@@ -110,7 +110,8 @@ const Friends = () => {
                 <button>New Bestie ❤</button>
             </form>
             <div className="friend-cont">
-            {friends.friendsList.map(friend => (
+            
+            {friends.friendsList.length > 0 ? friends.friendsList.map(friend => (
                 <div className="friend-card" key={friend.id}>
                     <h3>{friend.name}</h3>
                     <p>age: {friend.age}</p>
@@ -120,7 +121,7 @@ const Friends = () => {
                     <button onClick={()=>{deleteFriend(friend)}}className="friend-delete">Delete</button>
                 </div>
                 
-            ))}
+            )) : <div class="lds-ring"><div></div><div></div><div></div><div></div></div>}
             </div>
         </div>
     )

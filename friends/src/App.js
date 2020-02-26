@@ -13,7 +13,7 @@ function App() {
       <Nav />
         <Switch>
           <PrivateRoute exact path="/friends" component={Friends} />
-          <Route path="/login" component={Login} />         
+          <Route path="/login" component={Login} />        
           
         </Switch>
         
