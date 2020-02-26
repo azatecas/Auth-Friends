@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .friend-card {
@@ -21,12 +22,42 @@
   justify-content: center;
 }
 
-.friend-btn {
+
+.friend-delete {
   height: 30px;
   width: 90%;
   margin: auto;
+  margin-top: 5px;
   background-color: red;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
+}
+.friend-see {
+  height: 30px;
+  width: 90%;
+  margin: auto;
+  background-color: rgb(71, 252, 252);
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+nav {
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: peachpuff;
+  border-bottom: 2px solid brown;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border: 1px solid palevioletred;
 }

@@ -36,18 +36,22 @@ export const Login = () => {
     }
 
     return(
-        <form onSubmit={login}>
+        <form className="login" onSubmit={login}>
+            <label>Username</label>
             <input 
                 type="text"
                 name="username"
                 value={credentials.credentials.username}
                 onChange={handleChange}
+                placeholder="username"
             />
+            <label>password</label>
             <input 
                 type="password"
                 name="password"
                 value={credentials.credentials.password}
                 onChange={handleChange}
+                placeholder="password"
             />
             <button>Login</button>
         </form>

@@ -39,17 +39,30 @@ const Friends = () => {
                 
             })
             .catch (err => console.log('error friend click', err))
+    }
 
+    const deleteFriend = (oneFriend) => {
+        axiosWithAuth()
+            .delete(`/api/friends/${oneFriend.id}`)
+            .then(res => {                
+                // console.log('deleted friend',res.data);
+                setFriends({                    
+                    friendsList: res.data                    
+                })                
+            })
+            .catch (err => console.log('error friend delete', err))
     }
 
     useEffect(() => {
         getData();
     }, []);
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         setNewFriend({
+            ...newFriend,
             [e.target.name]: e.target.value
         })
+        // console.log('newfriend test',newFriend);
     }
 
     const handleSubmit = e => {
@@ -58,9 +71,9 @@ const Friends = () => {
             .post(`/api/friends`, newFriend)
             .then(res => {                
                 console.log('POST friend',res.data);
-                setFriends({
-                    ...friends,
-                    friendsList: res.data
+                setFriends({                    
+                    friendsList: [...friends.friendsList, newFriend],
+                    
                 })
             })
             .catch (err => console.log('error friend click', err))
@@ -92,6 +105,7 @@ const Friends = () => {
                     name="email"
                     value={newFriend.email}
                     onChange={handleChange}
+                    required
                 />
                 <button>New Bestie ❤</button>
             </form>
@@ -101,7 +115,9 @@ const Friends = () => {
                     <h3>{friend.name}</h3>
                     <p>age: {friend.age}</p>
                     <p>{friend.email}</p>
-                    <button onClick={()=>{seeFriend(friend)}}className="friend-btn">See</button>
+                    <button onClick={()=>{seeFriend(friend)}}className="friend-see">See</button>
+
+                    <button onClick={()=>{deleteFriend(friend)}}className="friend-delete">Delete</button>
                 </div>
                 
             ))}
