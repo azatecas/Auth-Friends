@@ -1,4 +1,4 @@
-# Auth Friends
+# Auth Friends Initial Commit
 
 Topics:
 
